@@ -3,6 +3,7 @@ package br.senai.sp.jandira.componentes2.Login.Screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +23,7 @@ fun LoginScren(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Red)
+            .background(Color(202,202,202))
             .padding(vertical = 50.dp,
             ), verticalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -36,14 +37,27 @@ fun LoginScren(navController: NavController) {
                 )
             }
 
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                Button(onClick = {
-                    navController.navigate("menu")
-                }) {
-                    Text(text = "Entrar",
-                        fontSize = 25.sp)
-                }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                onClick = { navController.navigate("menu") },
+                modifier = Modifier
+//                    .fillMaxWidth()
+                    .height(80.dp)
+                    .background(Color.Black), // Definindo a cor de fundo preta
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                Text(
+                    text = "Entrar",
+                    fontSize = 25.sp,
+                    color = Color.White // Definindo a cor do texto como branca
+                )
             }
+        }
+
 
 
     }
@@ -52,5 +66,5 @@ fun LoginScren(navController: NavController) {
 //@Preview (showBackground = true ,showSystemUi = true)
 //@Composable
 //fun LoginPreview() {
-//    LoginScren()
+// LoginScren()
 //}

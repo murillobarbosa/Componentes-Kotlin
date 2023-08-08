@@ -3,6 +3,7 @@ package br.senai.sp.jandira.componentes2.Pedidos.Screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,13 +34,28 @@ fun PedidosScreen(navController: NavController) {
             color = Color.White
         )
     }
-        
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            Button(onClick = { navController.navigate("menu") }) {
-                Text(text = "Voltar",
-                fontSize = 25.sp)
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                onClick = { navController.navigate("menu") },
+                modifier = Modifier
+//                    .fillMaxWidth()
+                    .height(80.dp)
+                    .background(Color.Black), // Definindo a cor de fundo preta
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                Text(
+                    text = "Voltar",
+                    fontSize = 25.sp,
+                    color = Color.White // Definindo a cor do texto como branca
+                )
             }
         }
+
     }
 
 }

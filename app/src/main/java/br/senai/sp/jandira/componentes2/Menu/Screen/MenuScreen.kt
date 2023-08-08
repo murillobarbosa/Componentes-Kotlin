@@ -3,6 +3,7 @@ package br.senai.sp.jandira.componentes2.Menu.Screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,12 +34,26 @@ fun MenuScreen(navController: NavController) {
             )
         }
 
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            Button(onClick = { navController.navigate("perfil/Maria da Silva/25")}, modifier = Modifier.width(125.dp)) {
-                Text(text = "Perfil",fontSize = 20.sp
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Button(
+                onClick = { navController.navigate("perfil/Murillo Ribeiro/25") },
+                modifier = Modifier
+                    .width(125.dp)
+                    .background(Color.Black), // Definindo a cor de fundo preta
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
+                contentPadding = PaddingValues(16.dp)
+            ) {
+                Text(
+                    text = "Perfil",
+                    fontSize = 15.sp,
+                    color = Color.White
                 )
             }
         }
+
 
         Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Button(onClick = { navController.navigate("pedidos") }, modifier = Modifier.width(125.dp).padding(bottom = 30.dp)) {
